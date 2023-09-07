@@ -10,7 +10,7 @@ certain word or letter in the text, how many words we have used so far, and more
 
 /**
  *
- * @author jason
+ * @author PacktPub
  */
 public class WordTool {
 
