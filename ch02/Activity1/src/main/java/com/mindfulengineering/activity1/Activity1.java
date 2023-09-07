@@ -6,9 +6,20 @@ package com.mindfulengineering.activity1;
 /**
  * DATA DEFINITIONS ===
  *
- * Systolic is a Number. INTERPRETATION: Represents the Systolic blood pressure
+ * Systolic is a Number 
+ * INTERPRETATION: Represents the Systolic blood pressure
  *
- * Diastolic is a Number INTERPRETATION: Represents Diastolic blood pressure
+ * Diastolic is a Number
+ * INTERPRETATION: Represents Diastolic blood pressure
+ * 
+ * RangeIndicator is a Number of:
+ * - -1 non-deterministic / error code
+ * - 0 low blood pressure
+ * - 1 ideal blood pressure
+ * - 2 pre-high blood pressure
+ * - 3 high blood pressure
+ * INTERPRETATION: An indicator representing where in the ideal range (or otherwise)
+ * the readings may fall
  *
  * @author jason
  */
@@ -17,13 +28,15 @@ public class Activity1 {
     /**
      * A program that takes a patient's blood pressure as input and then
      * determines if that blood pressure is within the ideal range.
-     *
-     * @param pressures
+     * 
+     * Side Effects: Will send to Standard Output
+     * 
+     * @param pressures Command input of the Systolic and Diastolic blood pressures
      */
     public static void main(String[] pressures) {
         // Check if there is the right number of inputs
         if (!verifyInputs(pressures)){
-            System.err.println("Missing inputs.");
+            System.err.println("Usage: Activity1 systolic diastolic");
             System.exit(-1);
         }
 
@@ -41,25 +54,30 @@ public class Activity1 {
             case 3 ->
                 " High blood pressure.";
             default ->
-                " Non-ideal blood pressure";
+                " Either re-test blood pressure or verify inputs...";
         });
 
     }
 
     /**
+     * [Strings] -> Boolean
+     * Verifies the expected input for the program to run correctly
      * 
-     * @param args
-     * @return 
+     * @param args An array of Strings, containing the Systolic and Diastolic pressures
+     * @return Given an array of length 2, expect true; Otherwise false
      */
     public static boolean verifyInputs (String[] args) {
         return args.length == 2;
     }
     
     /**
+     * Systolic Diastolic -> RangeIndicator
+     * Given the Systolic and Diastolic blood pressures, determine where on the scale
+     * from -1 to 3, the blood pressure falls
      * 
-     * @param systolic
-     * @param diastolic
-     * @return 
+     * @param systolic Systolic
+     * @param diastolic Diastolic
+     * @return An integer representing the state of the given blood pressure
      */
     public static int bloodPressureReport(int systolic, int diastolic) {
         if (isSystolicLow(systolic) && isDiastolicLow(diastolic)) {
@@ -75,6 +93,10 @@ public class Activity1 {
         }
     }
 
+    /*
+     * Helper methods ===
+    */
+    
     private static boolean isSystolicIdeal(int currentPressure) {
         return isWithinRange(90, currentPressure, 120);
     }
@@ -114,7 +136,7 @@ public class Activity1 {
     given: 90 80 120, expects: false
      */
     private static boolean isWithinRange(int lowerBound, int testNumber, int upperBound) {
-        return (lowerBound < testNumber) && (testNumber <= upperBound);
+        return (lowerBound < testNumber) && isWithinRange(testNumber, upperBound);
     }
 
     /* TEMPLATE:
