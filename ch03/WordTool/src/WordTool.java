@@ -24,7 +24,7 @@ public class WordTool {
         System.out.println("Analyzing the text: \n" + text);
         System.out.println("Total words: " + wt.wordCount(text));
         System.out.println("Total symbols (w. spaces): " + wt.symbolCount(text, true));
-        System.out.println("Total symbols (wo. spaces): " + wt.symbolCount(text, false));
+        System.out.println("Total amout of e: " + wt.symbolFrequency(text, 'e', false));
     }
 
     /**
@@ -73,6 +73,39 @@ public class WordTool {
             }
         }
 
+        return count;
+    }
+    
+    /**
+     * Calculates the frequency (how often) of a certain symbol.
+     * 
+     * @param s The text data containing the symbol
+     * @param symbol The symbol to search for
+     * @param whiteSpaces Should white space be treated as a symbol
+     * @return The frequency of the specified symbol contained in the given data
+     */
+    public int symbolFrequency(String s, char symbol, boolean whiteSpaces) {
+        int count = 0;
+        
+        // Ensure the string is not empty
+        if(!(s == null || s.isEmpty())) {
+            if(whiteSpaces) {
+                for(int i = 0; i < s.length(); i++) {
+                    if (s.charAt(i) == symbol) {
+                        count++;
+                    }
+                }
+            } else {
+                String withoutSpaces = s.replace(" ", "");
+                for (int i = 0; i < withoutSpaces.length(); i++) {
+                    char a = withoutSpaces.charAt(i);
+                    if (a == symbol) {
+                        count++;
+                    }
+                }
+            }
+        }
+        
         return count;
     }
 
