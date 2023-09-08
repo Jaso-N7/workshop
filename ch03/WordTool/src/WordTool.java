@@ -81,7 +81,7 @@ public class WordTool {
      * 
      * @param s The text data containing the symbol
      * @param symbol The symbol to search for
-     * @param whiteSpaces Should white space be treated as a symbol
+     * @param whiteSpaces Set to true if the symbol being counted is a white space
      * @return The frequency of the specified symbol contained in the given data
      */
     public int symbolFrequency(String s, char symbol, boolean whiteSpaces) {
