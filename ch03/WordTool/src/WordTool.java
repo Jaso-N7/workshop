@@ -12,10 +12,13 @@ certain word or letter in the text, how many words we have used so far, and more
  * A class that can perform various statistical analysis on text.
  * 
  * Usage:
- * <code>
+ * <pre>
+ * {@code
  *   WordTool wt = new WordTool();
- *   wt.wordCount("An example corpus");
- * </code>
+ *   int wc = wt.wordCount("An example corpus");
+ * }
+ * </pre>
+ * 
  * 
  * @author Jason Robinson
  * @version 0.1, 09/07/23
@@ -29,8 +32,11 @@ public class WordTool {
     }
 
     /**
-     * Demonstrates how to use <code>WordTool</code> and it's expected results.
+     * Demonstrates how to use {@code WordTool} and it's expected results.
      *
+     * <p>
+     * This method produces a side-effect, by printing to {@code System.out}.
+     * 
      * @param args optional command line arguments passed to the application.
      *             Has no use or bearing on the demonstration.
      */
@@ -47,11 +53,12 @@ public class WordTool {
     /**
      * Counts the number of words within a string.
      * 
+     * <p>
      * Words are considered groups of characters / symbols succeeded, preceded
      * or surrounded by white spaces.
      * 
-     * given: <code>"An example corpus"</code>, expect: <code>3</code>
-     * given: <code>""</code>, expect: <code>0</code>
+     * <p>given: {@code wordCount("An example corpus")} <br>expect: {@code 3}
+     * <p>given: {@code wordCount("")} <br>expect: {@code 0}
      *
      * @param s the string to be used
      * @return the number of words found in the given string
@@ -74,16 +81,17 @@ public class WordTool {
     /**
      * Counts the number of letters in a string.
      * 
+     * <p>
      * The ability to count both with and without white space characters is
-     * given by the flag <code>withSpaces</code>
+     * given by the flag {@code withSpaces}.
      *
-     * given: <code>"An example corpus", false</code>, expect: <code>15</code>
-     * given: <code>"An example corpus", true</code>, expect: <code>17</code>
+     * <p>given: {@code symbolCount("An example corpus", false)} <br>expect: {@code 15}
+     * <p>given: {@code symbolCount("An example corpus", true)} <br>expect: {@code 17}
      * 
      * @param s the data to be read
      * @param withSpaces flag to determine if white spaces are to be treated as
      * symbols
-     * @return The amount of symbols found in the given string
+     * @return the amount of symbols found in the given string
      */
     public int symbolCount(String s, boolean withSpaces) {
         int count = 0; // variable to count symbols
@@ -107,32 +115,42 @@ public class WordTool {
     /**
      * Calculates the frequency of a certain symbol appearing within a given text.
      * 
-     * Given an example to search for the letter <code>'e'</code>, not treating
-     * white spaces as symbols:
-     * <code>
-     *   WordTool wt = new WordTool();
-     *   String text = "The river carried the memories from her childhood.";
-     *   int frequency = wt.symbolFrequency(text, 'e', false);
-     * </code>
-     * Expect: <code>frequency</code> => <code>7</code>
+     * <p>Given:
+     * <pre>
+     *   {@code 
+     *     WordTool wt = new WordTool();
+     *     String text = "The river carried the memories from her childhood.";
+     *   }
+     * </pre>
+     * <p>
+     * To search for the letter {@code 'e'}, not treating white spaces as 
+     * symbols:
+     * <pre>
+     *   {@code 
+     *     int frequency = wt.symbolFrequency(text, 'e', false);
+     *   }
+     * </pre>
+     * Expect: {@code frequency} => {@code 7}
      * 
-     * Given n example to search for the letter <code>'h'</code>, this time, treating
+     * <p>
+     * To search for the letter {@code 'h'}, this time, treating
      * white spaces as symbols, the effect is the same as the previous example:
-     * <code>
-     *   WordTool wt = new WordTool();
-     *   String text = "The river carried the memories from her childhood.";
-     *   int frequency = wt.symbolFrequency(text, 'h', true);
-     * </code>
-     * Expect: <code>frequency</code> => <code>5</code>
+     * <pre>
+     *   {@code 
+     *     int frequency = wt.symbolFrequency(text, 'h', true);
+     *   }
+     * </pre>
+     * Expect: {@code frequency} => {@code 5}
      * 
-     * Given n example to search for white spaces <code>' '</code>, this time, treating
+     * <p>
+     * To search for white spaces {@code ' '}, this time, treating
      * white spaces as symbols:
-     * <code>
-     *   WordTool wt = new WordTool();
-     *   String text = "The river carried the memories from her childhood.";
-     *   int frequency = wt.symbolFrequency(text, ' ', true);
-     * </code>
-     * Expect: <code>frequency</code> => <code>7</code>
+     * <pre>
+     *   {@code 
+     *     int frequency = wt.symbolFrequency(text, ' ', true);
+     *   }
+     * </pre>
+     * Expect: {@code frequency} => {@code 7}
      * 
      * @param s the text data containing the symbol
      * @param symbol the symbol to search for
