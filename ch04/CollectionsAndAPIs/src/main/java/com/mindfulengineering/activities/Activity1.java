@@ -67,9 +67,10 @@ public class Activity1 {
      * Increments the occurrence, each time the word is found with the text.
      */
     public void incrementOccurrence() {
+        // If this is the first time being incremented...
         if (occurrence == -1) {
-            occurrence = 1;
-        } else {
+            occurrence = 1; // reset to 1
+        } else { // otherwise, keep incrementing
             ++occurrence;
         }
     }
@@ -93,11 +94,11 @@ public class Activity1 {
      */
     public static void main(String[] args) {
         
+        String word = "so";
         Activity1 a = new Activity1(
                 new String [] {"So", "many", "books", "so", "little", "time"});
-        //String word = "so";
-        
-        for (int posn : a.searchFor("so"))
+                
+        for (int posn : a.searchFor(word))
             System.out.println("Found query at: " + posn);
                     
         System.out.println("Found: " + a.wordOccured() + " coinciding words");
