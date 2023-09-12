@@ -28,6 +28,12 @@ public class AnalyzeInput {
         Console console;
         String line = "";
 
+        /* For testing purposes use
+        this is a test
+        is a test
+        test is this
+        .
+        */
         // while user has not entered "." (Ed style)
         while (!line.equals(".")
                 // ensure the terminal is ready to read data
@@ -42,6 +48,19 @@ public class AnalyzeInput {
         }
         System.out.println("You typed: " + text);
         System.out.println("Word count: " + text.size());
+        
+        // 1. Automatically eliminate duplicates
+        Set<String> textSet = new HashSet<>(text);
+        // textSet.addAll(text);
+        // 2. Check how many copies of each element from the set can be found
+        Iterator iter = textSet.iterator();
+        while (iter.hasNext()) {
+            String s = (String) iter.next(); // point to next element
+            // get the amount of times this word shows up in the text
+            int freq = Collections.frequency(text, s);
+            
+            System.out.println(s + " appears " + freq + " times");
+        }
     }
 
 }
