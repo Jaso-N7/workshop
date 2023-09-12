@@ -54,13 +54,24 @@ public class AnalyzeInput {
         // textSet.addAll(text);
         // 2. Check how many copies of each element from the set can be found
         Iterator iter = textSet.iterator();
+        
+        Map map = new HashMap(); // for storing the frequencies
+        
         while (iter.hasNext()) {
             String s = (String) iter.next(); // point to next element
             // get the amount of times this word shows up in the text
             int freq = Collections.frequency(text, s);
             
             System.out.println(s + " appears " + freq + " times");
+            
+            // add items to the map
+            map.put(s, freq);
         }
+        
+        TreeMap mapTree = new TreeMap(map);
+        // mapTree.putAll(map);
+        System.out.println(mapTree);
+
     }
 
 }
