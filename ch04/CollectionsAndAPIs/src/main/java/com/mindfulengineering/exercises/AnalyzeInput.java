@@ -11,7 +11,7 @@ import java.util.*;
  * then run statistical operations on the data.
  * 
  * @author Jason Robinson
- * @version 0.6, 09/12/23
+ * @version 0.6.1, 09/12/23
  * @since 09/11/23
  */
 public class AnalyzeInput {
@@ -71,7 +71,9 @@ public class AnalyzeInput {
             frequencies.add(dp);
         }
         
-        Collections.sort(frequencies, new SortByValue());
+        Collections.sort(
+                frequencies, 
+                Collections.reverseOrder(new SortByValue()));
         
         System.out.println("Results sorted");
         for (DataPoint dp : frequencies) {
