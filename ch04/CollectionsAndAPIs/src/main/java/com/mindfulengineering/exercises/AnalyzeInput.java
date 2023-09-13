@@ -20,7 +20,7 @@ import java.util.*;
  * 
  * @author Jason Robinson
  * @version 0.1, 09/12/23
- * @since 0.6, 09/11/23
+ * @since AnalyzeInputv0.6, 09/11/23
  */
 class DataPoint {
 
@@ -41,6 +41,35 @@ class DataPoint {
      */
     public static DataPoint of(String s, Integer i) {
         return new DataPoint(s, i);
+    }
+    
+    /**
+     * 
+     * @return the frequency of the word
+     */
+    public int frequency() {
+        return value;
+    }
+}
+
+/**
+ * Comparator that sorts on the DataPoint values.
+ * 
+ * @author Jason Robinson
+ * @version 0.1, 09/12/23
+ * @since AnalyzeInputv0.6
+ */
+class SortByValue implements Comparator<DataPoint> {
+    
+    /**
+     * Compares the DataPoints by their value
+     * @param a the first DataPoint
+     * @param b the second DataPoint
+     * @return 
+     */
+    @Override
+    public int compare(DataPoint a, DataPoint b) {
+        return a.frequency() - b.frequency();
     }
 }
 
