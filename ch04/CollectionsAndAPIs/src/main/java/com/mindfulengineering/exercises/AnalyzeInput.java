@@ -7,11 +7,50 @@ import java.io.Console;
 import java.util.*;
 
 /**
+ * DataPoint is a class of:
+ * <pre>
+ * <code>
+ *   DataPoint dp = DataPoint.of(Word, Frequency);
+ * </code>
+ * <pre>
+ * 
+ * INTERPRETATION: A class containing the two data points
+ * <br>WHERE: Word is a String and Frequency is an integer representing
+ * how often the word occurs.
+ * 
+ * @author Jason Robinson
+ * @version 0.1, 09/12/23
+ * @since 0.6, 09/11/23
+ */
+class DataPoint {
+
+    private String key;
+    private Integer value;
+    
+    private DataPoint(String s, Integer i) {
+        key = s;
+        value = i;
+    }
+    
+    /**
+     * Creates a new instance of the data point.
+     * 
+     * @param s word
+     * @param i how often the word occurs
+     * @return a new DataPoint instance
+     */
+    public static DataPoint of(String s, Integer i) {
+        return new DataPoint(s, i);
+    }
+}
+
+/**
  * AnalyzeInput is a Class that will respond to the CLI by storing whatever strings that are provided to it,
  * then run statistical operations on the data.
  * 
  * @author Jason Robinson
- * @version 0.3, 09/11/23
+ * @version 0.6, 09/12/23
+ * @since 09/11/23
  */
 public class AnalyzeInput {
 
@@ -55,7 +94,7 @@ public class AnalyzeInput {
         // 2. Check how many copies of each element from the set can be found
         Iterator iter = textSet.iterator();
         
-        Map map = new HashMap(); // for storing the frequencies
+        List<DataPoint> frequencies = new ArrayList<>(); // for storing the frequencies
         
         while (iter.hasNext()) {
             String s = (String) iter.next(); // point to next element
@@ -64,13 +103,11 @@ public class AnalyzeInput {
             
             System.out.println(s + " appears " + freq + " times");
             
-            // add items to the map
-            map.put(s, freq);
+            // Create the object to be stored
+            DataPoint dp = DataPoint.of(s, freq);
+            // add datapoints to the list
+            frequencies.add(dp);
         }
-        
-        TreeMap mapTree = new TreeMap(map);
-        // mapTree.putAll(map);
-        System.out.println(mapTree);
 
     }
 
