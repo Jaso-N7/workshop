@@ -85,7 +85,7 @@ public class AnalyzeInput {
 
 }
 
-/**
+/*
  * DataPoint is a class of:
  * <pre>
  * <code>
@@ -139,7 +139,7 @@ class DataPoint {
     }
 }
 
-/**
+/*
  * Comparator that sorts on the DataPoint values.
  * 
  * @author Jason Robinson
