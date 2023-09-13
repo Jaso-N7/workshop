@@ -19,7 +19,7 @@ import java.util.*;
  * how often the word occurs.
  * 
  * @author Jason Robinson
- * @version 0.1, 09/12/23
+ * @version 0.3, 09/12/23
  * @since AnalyzeInputv0.6, 09/11/23
  */
 class DataPoint {
@@ -41,6 +41,14 @@ class DataPoint {
      */
     public static DataPoint of(String s, Integer i) {
         return new DataPoint(s, i);
+    }
+    
+    /**
+     * 
+     * @return the word
+     */
+    public String word () {
+        return key;
     }
     
     /**
@@ -137,7 +145,7 @@ public class AnalyzeInput {
             // add datapoints to the list
             frequencies.add(dp);
         }
-
+        
     }
 
 }
