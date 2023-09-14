@@ -28,21 +28,24 @@ public class Example22 {
         while (e.hasMoreElements()) {
             
             // Printing the Keys
-//            System.out.println(e.nextElement());
+            System.out.println(e.nextElement());
 
-            // Printing the K,V pairs
+            /* Printing the K,V pairs
             String key = (String) e.nextElement();
             System.out.println(key + " = " + props.getProperty(key));
+            */
 
         }
         
-        // Adapting the enumeration as an iterator, as specified by the javadoc
+        /* Adapting the enumeration as an iterator, as specified by the javadoc
+        *
         System.out.println();
         Iterator eIter = props.propertyNames().asIterator();
         while (eIter.hasNext()) {
             String key = (String) eIter.next();
             System.out.println(key + ", " + props.getProperty(key));
         }
+        */
     }
     
 }
