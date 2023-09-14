@@ -21,9 +21,9 @@ public class Example20 {
         Set setOfKeys;
         String key;
         
-        props.put("OS", "Oracle Linux");
-        props.put("version", "9.2");
-        props.put("language", "English (UK)");
+        props.setProperty("OS", "Oracle Linux");
+        props.setProperty("version", "9.2");
+        props.setProperty("language", "English (UK)");
         
         // iterate through the map
         setOfKeys = props.keySet();
