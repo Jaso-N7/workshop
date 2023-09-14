@@ -29,7 +29,7 @@ public class Example20 {
         setOfKeys = props.keySet();
         Iterator iter = setOfKeys.iterator();
         while(iter.hasNext()) {
-            key = (String) iter.next();
+            key = iter.next().toString();
             System.out.println(key + " = " + props.getProperty(key));
         }
         System.out.println();
