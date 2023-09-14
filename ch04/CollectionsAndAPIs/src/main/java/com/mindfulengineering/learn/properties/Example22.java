@@ -6,7 +6,7 @@ import java.util.*;
  * Examples of utilizing {@code Properties.propertyNames()}
  * 
  * @author Jason Robinson
- * @version 0.1, 09/13/23
+ * @version 0.2, 09/13/23
  */
 public class Example22 {
 
@@ -25,7 +25,22 @@ public class Example22 {
         
         Enumeration e = props.propertyNames();
         while (e.hasMoreElements()) {
-            System.out.println(e.nextElement());
+            
+            // Printing the Keys
+//            System.out.println(e.nextElement());
+
+            // Printing the K,V pairs
+            String key = (String) e.nextElement();
+            System.out.println(key + " = " + props.getProperty(key));
+
+        }
+        
+        // Adapting the enumeration as an iterator, as specified by the javadoc
+        System.out.println();
+        Iterator eIter = props.propertyNames().asIterator();
+        while (eIter.hasNext()) {
+            String key = (String) eIter.next();
+            System.out.println(key + ", " + props.getProperty(key));
         }
     }
     
