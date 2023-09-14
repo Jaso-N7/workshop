@@ -3,7 +3,8 @@ package com.mindfulengineering.learn.properties;
 import java.util.*;
 
 /**
- * Examples of utilizing {@code Properties.propertyNames()}
+ * Examples of utilizing {@code Properties.propertyNames()}, an alternative to
+ * creating a {@code Set} and running the {@code keySet()} method.
  * 
  * @author Jason Robinson
  * @version 0.2, 09/13/23
