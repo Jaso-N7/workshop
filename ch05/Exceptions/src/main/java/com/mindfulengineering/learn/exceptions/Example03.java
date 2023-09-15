@@ -13,7 +13,7 @@ import java.nio.file.*;
  * <b>WARNING: This file will never compile</b>
  *
  * @author Jason Robinson
- * @version 0.1.3, 09/15/23
+ * @version 0.2, 09/15/23
  */
 public class Example03 {
 
@@ -22,7 +22,7 @@ public class Example03 {
      *
      * @param args unused optional argument
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // declare a list that will contain all of the files inside of the
         // non-existent 'readme.txt' file
         List<String> lines = Collections.emptyList();
