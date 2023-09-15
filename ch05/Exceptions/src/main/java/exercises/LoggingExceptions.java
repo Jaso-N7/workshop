@@ -1,4 +1,4 @@
-package com.mindfulengineering.loggingexceptions;
+package exercises;
 
 import java.util.logging.*;
 
