@@ -13,7 +13,7 @@ import java.nio.file.*;
  * <b>WARNING: This file will never compile</b>
  *
  * @author Jason Robinson
- * @version 0.2, 09/15/23
+ * @version 0.3, 09/15/23
  */
 public class Example03 {
 
@@ -40,6 +40,8 @@ public class Example03 {
                 System.out.println("Exception: File Not Found or NullPointer");
             }
             
+        } finally {
+            System.out.println("Exception: Case Closed");
         }
 
         // you will never see this print or get this far without capturing or
