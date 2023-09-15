@@ -13,7 +13,7 @@ import java.nio.file.*;
  * <b>WARNING: This file will never compile</b>
  *
  * @author Jason Robinson
- * @version 0.1.1, 09/15/23
+ * @version 0.1.2, 09/15/23
  */
 public class Example03 {
 
@@ -30,13 +30,12 @@ public class Example03 {
         try {
             // !!! provoke an exception
             lines = Files.readAllLines(Paths.get("readme.txt"));
-        } catch (NoSuchFileException nsfe) {
             
-            System.out.println("Exception: File Not Found");
-            nsfe.printStackTrace();
+        } catch (NullPointerException | IOException xpn) {
             
-        } catch (IOException ioe) {
-            System.out.println("Exception: IOException");
+            System.out.println("Exception: File Not Found or NullPointer");
+            xpn.printStackTrace();
+            
         }
 
         // you will never see this print or get this far without capturing or
