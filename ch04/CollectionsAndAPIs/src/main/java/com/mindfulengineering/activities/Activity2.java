@@ -67,7 +67,7 @@ public class Activity2 {
         // }
         Iterator<Double> iter = data.iterator();
         while(iter.hasNext()) {
-            values += (Double) iter.next();
+            values += iter.next(); // Already boxed, no need to cast
         }
 
         return values / data.size();
@@ -90,8 +90,11 @@ public class Activity2 {
             a2.setData(Math.random() * 100);
         }
         
+        // 2. Iterate through the list and add the weighted value corresponding
+        //    to each element
         Double avg = a2.computeAverage();
         
+        // Results of the averaging
         System.out.println("Total amount of numbers: " + capacity);
         System.out.println("Average: " + avg);
         
