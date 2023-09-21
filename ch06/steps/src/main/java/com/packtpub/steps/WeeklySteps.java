@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  *
  * @author jason
@@ -64,9 +66,14 @@ public class WeeklySteps {
             } else {
                 sb.append("     ");
             }
-            sb.append(steps.getDate().getDayOfWeek());
+            
+            String day = steps.getDate().getDayOfWeek().toString();
+            
+            sb.append( StringUtils.rightPad(day, 11) );
             sb.append(" ");
-            sb.append(steps.getSteps());
+            
+            String stp = Integer.toString(steps.getSteps());
+            sb.append( StringUtils.leftPad(stp, 6) );
             
             DayOfWeek best = bestDay();
             if(steps.getDate().getDayOfWeek() == best) {
